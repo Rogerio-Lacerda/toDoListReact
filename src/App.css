@@ -11,6 +11,11 @@ body {
   font-family: 'Poppins', sans-serif;
 }
 
+img {
+  max-width: 100%;
+  display: block;
+}
+
 .container {
   min-height: 100vh;
   width: 100%;
@@ -31,7 +36,8 @@ body {
   padding: 2rem;
   border-radius: 4px;
   background: #5c6f7e;
-  height: 50vh;
-  width: 50vw;
+  min-width: 50vw;
   box-shadow: 0 0 1rem #000;
+  display: grid;
+  gap: 1rem;
 }

@@ -1,0 +1,63 @@
+.listarTarefa {
+  display: grid;
+  gap: 1rem;
+}
+
+.containerTarefas {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.tarefas {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #001e4c;
+  padding: 0.5rem;
+  border-radius: 4px;
+}
+
+.informacoes {
+  display: grid;
+  gap: 0.2rem;
+}
+
+.informacoes p {
+  color: #fff;
+  font-size: 1.2rem;
+}
+
+.informacoes span {
+  display: block;
+  color: #d8d7d8;
+}
+
+.botoes {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.completar {
+  background: #309f15;
+  font-family: inherit;
+  border: none;
+  padding: 0.5rem;
+  color: #fff;
+  cursor: pointer;
+}
+
+.completar:hover,
+.excluir:hover {
+  box-shadow: 0 0 0 1px #fff;
+}
+
+.excluir {
+  background: #b72409;
+  font-family: inherit;
+  border: none;
+  padding: 0.1rem;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
