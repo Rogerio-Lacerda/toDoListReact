@@ -1,0 +1,12 @@
+.titulo {
+  font-size: 1.4rem;
+  color: #fff;
+}
+
+.titulo::after {
+  content: '';
+  display: block;
+  width: 0.8rem;
+  height: 0.2rem;
+  background: #001e4c;
+}
