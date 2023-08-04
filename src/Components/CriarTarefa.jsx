@@ -24,11 +24,16 @@ const CriarTarefa = () => {
       setErrorEscolha('Escolha alguma categoria!');
       setErrorTarefa(false);
     } else {
-      console.log(tarefa);
-      console.log(escolha);
       setErrorTarefa(false);
       setErrorEscolha(false);
-      setTarefas([...tarefas, { tarefa: tarefa, categoria: escolha }]);
+      const letras = 'abcdefghijklmnopqrstuvwxyz';
+      const place_id =
+        letras.charAt(Math.floor(Math.random() * letras.length)) +
+        (Math.random() + 1).toString(36).substring(2, 9);
+      setTarefas([
+        ...tarefas,
+        { tarefa: tarefa, categoria: escolha, id: place_id },
+      ]);
     }
   };
 
@@ -56,9 +61,9 @@ const CriarTarefa = () => {
           <option value="categoria" disabled>
             Seleciona uma categoria
           </option>
-          <option value="trabalho">Trabalho</option>
-          <option value="pessoal">Pessoal</option>
-          <option value="estudos">Estudos</option>
+          <option value="Trabalho">Trabalho</option>
+          <option value="Pessoal">Pessoal</option>
+          <option value="Estudos">Estudos</option>
         </select>
         <Error error={errorEscolha} />
         <button>Criar tarefa</button>

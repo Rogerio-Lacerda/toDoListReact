@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import CriarTarefa from './Components/CriarTarefa';
 import { UserContext, UserStorage } from './UserContext';
+import ListarTarefa from './Components/ListarTarefa';
 
 function App() {
   // const { tarefas } = React.useContext(GlobalContext);
@@ -14,6 +15,7 @@ function App() {
         <section className="container">
           <div className="tarefas">
             <CriarTarefa />
+            <ListarTarefa />
           </div>
         </section>
       </UserStorage>
