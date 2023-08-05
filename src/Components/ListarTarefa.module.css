@@ -32,6 +32,10 @@
   color: #d8d7d8;
 }
 
+.completo {
+  text-decoration: line-through;
+}
+
 .botoes {
   display: flex;
   gap: 0.5rem;
