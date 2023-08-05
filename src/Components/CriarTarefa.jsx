@@ -9,7 +9,7 @@ const CriarTarefa = () => {
   const [escolha, setEscolha] = React.useState('categoria');
   const [errorEscolha, setErrorEscolha] = React.useState(false);
   const [errorTarefa, setErrorTarefa] = React.useState(false);
-  const { tarefas, setTarefas } = React.useContext(UserContext);
+  const { atualizar } = React.useContext(UserContext);
 
   const handleChange = ({ target }) => {
     setTarefa(target.value);
@@ -30,10 +30,24 @@ const CriarTarefa = () => {
       const place_id =
         letras.charAt(Math.floor(Math.random() * letras.length)) +
         (Math.random() + 1).toString(36).substring(2, 9);
-      setTarefas([
-        ...tarefas,
-        { tarefa: tarefa, categoria: escolha, id: place_id },
-      ]);
+      const itens = JSON.parse(localStorage.getItem('tarefas'));
+      if (itens === null) {
+        localStorage.setItem(
+          'tarefas',
+          JSON.stringify([
+            { tarefa: tarefa, categoria: escolha, id: place_id },
+          ]),
+        );
+      } else {
+        localStorage.setItem(
+          'tarefas',
+          JSON.stringify([
+            ...itens,
+            { tarefa: tarefa, categoria: escolha, id: place_id, status: false },
+          ]),
+        );
+      }
+      atualizar();
     }
   };
 
