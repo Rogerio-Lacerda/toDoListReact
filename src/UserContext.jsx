@@ -6,6 +6,7 @@ export const UserStorage = ({ children }) => {
   const [tarefas, setTarefas] = React.useState(
     JSON.parse(localStorage.getItem('tarefas')),
   );
+  const [statusTarefa, setStatusTarefa] = React.useState('todas');
 
   const atualizar = () => {
     setTarefas(JSON.parse(localStorage.getItem('tarefas')));
@@ -13,7 +14,15 @@ export const UserStorage = ({ children }) => {
 
   return (
     <>
-      <UserContext.Provider value={{ tarefas, setTarefas, atualizar }}>
+      <UserContext.Provider
+        value={{
+          tarefas,
+          setTarefas,
+          atualizar,
+          setStatusTarefa,
+          statusTarefa,
+        }}
+      >
         {children}
       </UserContext.Provider>
     </>

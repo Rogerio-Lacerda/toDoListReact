@@ -15,6 +15,7 @@
   background: #001e4c;
   padding: 0.5rem;
   border-radius: 4px;
+  gap: 1rem;
 }
 
 .informacoes {
@@ -25,6 +26,7 @@
 .informacoes p {
   color: #fff;
   font-size: 1.2rem;
+  max-width: 20rem;
 }
 
 .informacoes span {
@@ -41,13 +43,18 @@
   gap: 0.5rem;
 }
 
-.completar {
+.completar,
+.descompletar {
   background: #309f15;
   font-family: inherit;
   border: none;
   padding: 0.5rem;
   color: #fff;
   cursor: pointer;
+}
+
+.descompletar {
+  background: #5c6f7e;
 }
 
 .completar:hover,
@@ -64,4 +71,8 @@
   cursor: pointer;
   display: flex;
   align-items: center;
+}
+
+.semTarefa {
+  color: #fff;
 }
