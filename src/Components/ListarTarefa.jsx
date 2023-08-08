@@ -5,7 +5,8 @@ import { UserContext } from '../UserContext';
 import { ReactComponent as Lixeira } from '../Assets/lix.svg';
 
 const ListarTarefa = () => {
-  const { tarefas, atualizar, statusTarefa } = React.useContext(UserContext);
+  const { tarefas, atualizar, statusTarefa, pesquisarTarefa } =
+    React.useContext(UserContext);
   const [filtrados, setFiltrados] = React.useState(tarefas);
 
   React.useEffect(() => {
@@ -64,35 +65,41 @@ const ListarTarefa = () => {
         <Titulo texto="Tarefas" />
         <ul className={styles.containerTarefas}>
           {filtrados.length ? (
-            filtrados.map(({ tarefa, categoria, id, status }, index) => (
-              <li key={id} id={id} className={styles.tarefas}>
-                <div className={styles.informacoes}>
-                  <p className={status ? styles.completo : null}>{tarefa}</p>
-                  <span className={status ? styles.completo : null}>
-                    ({categoria})
-                  </span>
-                </div>
-                <div className={styles.botoes}>
-                  <button
-                    className={status ? styles.descompletar : styles.completar}
-                    onClick={
-                      status
-                        ? () => descompletarTarefa(id)
-                        : () => completarTarefa(id)
-                    }
-                  >
-                    {status ? 'Descompletar' : 'Completar'}
-                  </button>
-                  <button
-                    className={styles.excluir}
-                    id={index}
-                    onClick={() => excluirTarefa(id)}
-                  >
-                    <Lixeira />
-                  </button>
-                </div>
-              </li>
-            ))
+            filtrados
+              .filter(({ tarefa }) =>
+                tarefa.toLowerCase().includes(pesquisarTarefa.toLowerCase()),
+              )
+              .map(({ tarefa, categoria, id, status }, index) => (
+                <li key={id} id={id} className={styles.tarefas}>
+                  <div className={styles.informacoes}>
+                    <p className={status ? styles.completo : null}>{tarefa}</p>
+                    <span className={status ? styles.completo : null}>
+                      ({categoria})
+                    </span>
+                  </div>
+                  <div className={styles.botoes}>
+                    <button
+                      className={
+                        status ? styles.descompletar : styles.completar
+                      }
+                      onClick={
+                        status
+                          ? () => descompletarTarefa(id)
+                          : () => completarTarefa(id)
+                      }
+                    >
+                      {status ? 'Descompletar' : 'Completar'}
+                    </button>
+                    <button
+                      className={styles.excluir}
+                      id={index}
+                      onClick={() => excluirTarefa(id)}
+                    >
+                      <Lixeira />
+                    </button>
+                  </div>
+                </li>
+              ))
           ) : (
             <p className={styles.semTarefa}>Nenhuma tarefa foi adicionada</p>
           )}

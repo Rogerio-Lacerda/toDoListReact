@@ -7,6 +7,7 @@ export const UserStorage = ({ children }) => {
     JSON.parse(localStorage.getItem('tarefas')),
   );
   const [statusTarefa, setStatusTarefa] = React.useState('todas');
+  const [pesquisarTarefa, setPesquisarTarefa] = React.useState('');
 
   const atualizar = () => {
     setTarefas(JSON.parse(localStorage.getItem('tarefas')));
@@ -21,6 +22,8 @@ export const UserStorage = ({ children }) => {
           atualizar,
           setStatusTarefa,
           statusTarefa,
+          setPesquisarTarefa,
+          pesquisarTarefa,
         }}
       >
         {children}

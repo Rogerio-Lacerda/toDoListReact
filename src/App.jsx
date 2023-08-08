@@ -1,9 +1,10 @@
 import React from 'react';
 import './App.css';
 import CriarTarefa from './Components/CriarTarefa';
-import { UserContext, UserStorage } from './UserContext';
+import { UserStorage } from './UserContext';
 import ListarTarefa from './Components/ListarTarefa';
 import FiltrarTarefa from './Components/FiltrarTarefa';
+import PesquisarTarefa from './Components/PesquisarTarefa';
 
 function App() {
   return (
@@ -11,9 +12,10 @@ function App() {
       <UserStorage>
         <section className="container">
           <div className="tarefas">
-            <CriarTarefa />
+            <PesquisarTarefa />
             <FiltrarTarefa />
             <ListarTarefa />
+            <CriarTarefa />
           </div>
         </section>
       </UserStorage>
