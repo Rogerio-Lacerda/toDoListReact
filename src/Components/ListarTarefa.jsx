@@ -5,7 +5,7 @@ import { UserContext } from '../UserContext';
 import { ReactComponent as Lixeira } from '../Assets/lix.svg';
 
 const ListarTarefa = () => {
-  const { tarefas, atualizar, statusTarefa, pesquisarTarefa } =
+  const { tarefas, atualizar, statusTarefa, pesquisarTarefa, ordenarTarefa } =
     React.useContext(UserContext);
   const [filtrados, setFiltrados] = React.useState(tarefas);
 
@@ -68,6 +68,11 @@ const ListarTarefa = () => {
             filtrados
               .filter(({ tarefa }) =>
                 tarefa.toLowerCase().includes(pesquisarTarefa.toLowerCase()),
+              )
+              .sort((a, b) =>
+                ordenarTarefa === 'asc'
+                  ? a.tarefa.localeCompare(b.tarefa)
+                  : b.tarefa.localeCompare(a.tarefa),
               )
               .map(({ tarefa, categoria, id, status }, index) => (
                 <li key={id} id={id} className={styles.tarefas}>
