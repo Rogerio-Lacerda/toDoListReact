@@ -4,11 +4,15 @@ import Titulo from './Titulo.jsx';
 import { UserContext } from '../UserContext';
 
 const FiltrarTarefa = () => {
-  const { setStatusTarefa } = React.useContext(UserContext);
+  const { setStatusTarefa, setOrdenarTarefa } = React.useContext(UserContext);
 
   const handleChange = ({ target }) => {
     const { value } = target;
     setStatusTarefa(value);
+  };
+
+  const handleClick = ({ target }) => {
+    setOrdenarTarefa(target.innerText.toLowerCase());
   };
 
   return (
@@ -22,6 +26,13 @@ const FiltrarTarefa = () => {
           <option value="incompletas">Incompletas</option>
         </select>
       </form>
+      <div className={styles.ordenar}>
+        <h3>Ordenar</h3>
+        <div className={styles.ordenarBtns}>
+          <button onClick={handleClick}>Asc</button>
+          <button onClick={handleClick}>Desc</button>
+        </div>
+      </div>
     </div>
   );
 };

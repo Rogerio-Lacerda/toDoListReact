@@ -1,6 +1,13 @@
 .filtrarTarefa {
   display: grid;
-  gap: 0.5rem;
+  grid-template-columns: auto 1fr;
+  gap: 0.5rem 1rem;
+  align-items: start;
+  align-items: start;
+}
+
+.filtrarTarefa h1 {
+  grid-column: 1 / -1;
 }
 
 .formStatus {
@@ -28,5 +35,37 @@
 .formStatus select:focus {
   outline: none;
   border-color: #001e4c;
+  box-shadow: 0 0 0 1px #fff;
+}
+
+.ordenar {
+  display: grid;
+  align-items: start;
+  gap: 0.5rem;
+}
+
+.ordenar h3 {
+  font-size: 1rem;
+  color: #fff;
+  font-weight: 400;
+}
+
+.ordenarBtns {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.ordenarBtns button {
+  display: block;
+  padding: 0.2rem 0.5rem;
+  color: #fff;
+  font-size: 0.9rem;
+  background: #001e4c;
+  border: none;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.ordenarBtns button:hover {
   box-shadow: 0 0 0 1px #fff;
 }
