@@ -1,8 +1,5 @@
-# React + Vite
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+<h1>Projeto - To Do List com React</h1>
+<p>Criei uma to do list com react, onde o usuário pode além de criar tarefas, ele pode completar as tarefas e também descompletar, com isso
+as tarefas podem ser filtradas com as opções: todas, completas e incompletas. Também é possivel pesquisar uma tarefa específica de acordo com o que o usuário digitar.</p>
+<p>As tarefas são ordenadas alfabéticamnete como crescente ou decrescente.</p>
+<p>As tarefas são salvas no localStorage então sempre que o usuário entrar na página as tarefas estarão lá.</p>
