@@ -1,0 +1,32 @@
+.filtrarTarefa {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.formStatus {
+  display: grid;
+  gap: 0.3rem;
+  justify-items: start;
+}
+
+.formStatus label {
+  color: #fff;
+  font-weight: 400;
+}
+
+.formStatus select {
+  padding: 0.3rem;
+  font-size: 1rem;
+  border-radius: 4px;
+  border: none;
+  display: block;
+  border: 2px solid #fff;
+  min-width: 300px;
+}
+
+.formStatus select:hover,
+.formStatus select:focus {
+  outline: none;
+  border-color: #001e4c;
+  box-shadow: 0 0 0 1px #fff;
+}
