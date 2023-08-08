@@ -69,3 +69,9 @@
 .ordenarBtns button:hover {
   box-shadow: 0 0 0 1px #fff;
 }
+
+@media (max-width: 450px) {
+  .filtrarTarefa {
+    grid-template-columns: 1fr;
+  }
+}
