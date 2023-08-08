@@ -76,3 +76,14 @@
 .semTarefa {
   color: #fff;
 }
+
+@media (max-width: 460px) {
+  .tarefas {
+    flex-direction: column;
+    align-items: start;
+  }
+
+  .botoes {
+    align-self: end;
+  }
+}

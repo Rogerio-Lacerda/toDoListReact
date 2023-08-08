@@ -42,3 +42,18 @@ img {
   display: grid;
   gap: 1rem;
 }
+
+@media (max-width: 600px) {
+  input,
+  select {
+    min-width: 200px !important;
+  }
+}
+
+@media (max-width: 340px) {
+  input,
+  select {
+    min-width: initial !important;
+    width: 180px !important;
+  }
+}
