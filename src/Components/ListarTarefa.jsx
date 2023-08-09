@@ -64,47 +64,53 @@ const ListarTarefa = () => {
       <div className={styles.listarTarefa}>
         <Titulo texto="Tarefas" />
         <ul className={styles.containerTarefas}>
-          {filtrados.length ? (
-            filtrados
-              .filter(({ tarefa }) =>
-                tarefa.toLowerCase().includes(pesquisarTarefa.toLowerCase()),
-              )
-              .sort((a, b) =>
-                ordenarTarefa === 'asc'
-                  ? a.tarefa.localeCompare(b.tarefa)
-                  : b.tarefa.localeCompare(a.tarefa),
-              )
-              .map(({ tarefa, categoria, id, status }, index) => (
-                <li key={id} id={id} className={styles.tarefas}>
-                  <div className={styles.informacoes}>
-                    <p className={status ? styles.completo : null}>{tarefa}</p>
-                    <span className={status ? styles.completo : null}>
-                      ({categoria})
-                    </span>
-                  </div>
-                  <div className={styles.botoes}>
-                    <button
-                      className={
-                        status ? styles.descompletar : styles.completar
-                      }
-                      onClick={
-                        status
-                          ? () => descompletarTarefa(id)
-                          : () => completarTarefa(id)
-                      }
-                    >
-                      {status ? 'Descompletar' : 'Completar'}
-                    </button>
-                    <button
-                      className={styles.excluir}
-                      id={index}
-                      onClick={() => excluirTarefa(id)}
-                    >
-                      <Lixeira />
-                    </button>
-                  </div>
-                </li>
-              ))
+          {filtrados ? (
+            filtrados.length ? (
+              filtrados
+                .filter(({ tarefa }) =>
+                  tarefa.toLowerCase().includes(pesquisarTarefa.toLowerCase()),
+                )
+                .sort((a, b) =>
+                  ordenarTarefa === 'asc'
+                    ? a.tarefa.localeCompare(b.tarefa)
+                    : b.tarefa.localeCompare(a.tarefa),
+                )
+                .map(({ tarefa, categoria, id, status }, index) => (
+                  <li key={id} id={id} className={styles.tarefas}>
+                    <div className={styles.informacoes}>
+                      <p className={status ? styles.completo : null}>
+                        {tarefa}
+                      </p>
+                      <span className={status ? styles.completo : null}>
+                        ({categoria})
+                      </span>
+                    </div>
+                    <div className={styles.botoes}>
+                      <button
+                        className={
+                          status ? styles.descompletar : styles.completar
+                        }
+                        onClick={
+                          status
+                            ? () => descompletarTarefa(id)
+                            : () => completarTarefa(id)
+                        }
+                      >
+                        {status ? 'Descompletar' : 'Completar'}
+                      </button>
+                      <button
+                        className={styles.excluir}
+                        id={index}
+                        onClick={() => excluirTarefa(id)}
+                      >
+                        <Lixeira />
+                      </button>
+                    </div>
+                  </li>
+                ))
+            ) : (
+              <p className={styles.semTarefa}>Nenhuma tarefa foi adicionada</p>
+            )
           ) : (
             <p className={styles.semTarefa}>Nenhuma tarefa foi adicionada</p>
           )}
